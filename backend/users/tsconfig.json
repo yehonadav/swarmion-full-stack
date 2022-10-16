@@ -3,7 +3,8 @@
   "compilerOptions": {
     "preserveSymlinks": true,
     "baseUrl": ".",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "removeComments": true
   },
   "references": [
     { "path": "../../packages/serverless-configuration/tsconfig.build.json" },

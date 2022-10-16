@@ -15,7 +15,12 @@ const serverlessConfiguration: AWS = {
   service: `${projectName}-users`, // Keep it short to have role name below 64
   frameworkVersion,
   configValidationMode: 'error',
-  plugins: ['serverless-esbuild', 'serverless-iam-roles-per-function'],
+  plugins: [
+    'serverless-esbuild',
+    'serverless-iam-roles-per-function',
+    // 'serverless-plugin-typescript',
+    'serverless-plugin-optimize',
+  ],
   provider: {
     ...sharedProviderConfig,
     httpApi: {

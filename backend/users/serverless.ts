@@ -19,7 +19,8 @@ const serverlessConfiguration: AWS = {
     'serverless-esbuild',
     'serverless-iam-roles-per-function',
     // 'serverless-plugin-typescript',
-    'serverless-plugin-optimize',
+    // 'serverless-plugin-optimize',
+    'serverless-offline',
   ],
   provider: {
     ...sharedProviderConfig,

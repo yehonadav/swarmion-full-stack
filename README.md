@@ -18,3 +18,7 @@ These commands have to be run at the root of the project.
 - `pnpm generate-service myService`: create a simple service in the repository's structure respecting our guidelines
 - `pnpm generate-library myLibrary`: create a simple internal library in the repository's structure respecting our guidelines
 - `cd frontend/app && pnpm start`: start the frontend application
+- `pnpm nx build {projectName} --verbose`: build 1 project
+- `cd {projectPath} && pnpm install`: install 1 project
+- `pnpm nx deploy {projectName} --verbose`: deploy 1 project
+- `pnpm nx remove {projectName} --verbose`: remove 1 project

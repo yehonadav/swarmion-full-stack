@@ -1,5 +1,9 @@
-export const main = async (): Promise<string> => {
-  await Promise.resolve();
+import { utils } from '@swarmion-full-stack/utils';
 
-  return 'ok';
+export const main = async (): Promise<string> => {
+  const utilsValue = utils();
+
+  console.log({ utilsValue });
+
+  return Promise.resolve('ok');
 };

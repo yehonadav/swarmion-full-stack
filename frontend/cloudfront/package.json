@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "license": "UNLICENSED",
   "scripts": {
-    "deploy": "./deploy.sh",
+    "deploy": "bash ./deploy.sh",
     "lint-fix": "pnpm linter-base-config --fix",
     "lint-fix-all": "pnpm lint-fix .",
     "linter-base-config": "eslint --ext=js,ts",

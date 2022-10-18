@@ -9,7 +9,10 @@ while [ $# -gt 0 ]; do
   shift
 done
 
-stages=("staging production")
+stages=("dev staging production")
+
+stage="${stage:-dev}"
+echo "stage ${stage} now!"
 
 if [[ -n "${stage}" ]] && [[ ! "${stages[*]}" =~ "${stage}" ]]; then
   echo "Stage should be either empty or \`staging\` or \`production\`"
@@ -22,5 +25,5 @@ cd ../cloudfront || exit 1
 if [[ -z "${stage}" ]]; then
   pnpm serverless deploy
 else
-  pnpm serverless deploy --stage "$stage"
+  pnpm serverless deploy --stage "$stage" --verbose
 fi

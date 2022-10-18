@@ -25,7 +25,7 @@ export const sharedProviderConfig = {
  * An empty string for a profile means that the default profile will be used
  */
 export const sharedParams = {
-  dev: { profile: 'swarmion-full-stack-developer' },
+  dev: { profile: 'esemes' },
   staging: { profile: '' },
   production: { profile: '' },
 };

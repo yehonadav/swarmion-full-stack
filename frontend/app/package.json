@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "license": "UNLICENSED",
   "scripts": {
-    "analyze": "ANALYZE=true pnpm build",
+    "analyze": "cross-env ANALYZE=true pnpm build",
     "build": "vite build",
     "lint-fix": "pnpm linter-base-config --fix",
     "lint-fix-all": "pnpm lint-fix .",

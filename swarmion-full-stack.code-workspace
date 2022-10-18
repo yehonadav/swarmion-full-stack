@@ -6,7 +6,10 @@
       "source.fixAll.eslint": true,
       "source.fixAll.stylelint": true
     },
-    "stylelint.validate": ["typescript", "typescriptreact"],
+    "stylelint.validate": [
+      "typescript",
+      "typescriptreact"
+    ],
     "stylelint.customSyntax": "@stylelint/postcss-css-in-js",
     "search.exclude": {
       "**/coverage": true,
@@ -24,9 +27,14 @@
       "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "typescript.tsdk": "node_modules/typescript/lib",
-    "cSpell.words": ["esbuild", "swarmion"],
+    "cSpell.words": [
+      "esbuild",
+      "swarmion"
+    ],
     "vitest.commandLine": "pnpm vitest",
-    "vitest.disabledWorkspaceFolders": ["swarmion-full-stack root"]
+    "vitest.disabledWorkspaceFolders": [
+      "swarmion-full-stack root"
+    ]
   },
   "extensions": {
     "recommendations": [
@@ -78,6 +86,10 @@
     {
       "path": "frontend/cloudfront",
       "name": "frontend cloudfront [service]"
+    },
+    {
+      "path": "packages/utils",
+      "name": "utils [library]"
     }
   ]
 }

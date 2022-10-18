@@ -8,6 +8,7 @@
     "frontend-cloudfront": "frontend/cloudfront",
     "frontend-shared": "frontend/shared",
     "serverless-configuration": "packages/serverless-configuration",
-    "users-contracts": "contracts/users-contracts"
+    "users-contracts": "contracts/users-contracts",
+    "utils": "packages/utils"
   }
 }

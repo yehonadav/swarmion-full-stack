@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "license": "UNLICENSED",
   "scripts": {
-    "deploy": "serverless deploy",
+    "deploy": "serverless deploy --verbose",
     "deploy-production": "serverless deploy --stage production",
     "deploy-staging": "serverless deploy --stage staging",
     "deployedCommit": "serverless deployedCommit",
@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@swarmion-full-stack/serverless-configuration": "1.0.0",
+    "@swarmion-full-stack/utils": "1.0.0",
     "@swarmion/serverless-helpers": "^0.11.2"
   },
   "devDependencies": {

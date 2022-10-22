@@ -19,6 +19,8 @@
     "generate-service": "nx generate @swarmion/nx-plugin:service",
     "graph": "nx dep-graph",
     "info": "nx run-many --target=sls-info --all --parallel=4",
+    "create:lib": "nx generate @swarmion-full-stack/tooling:tooling new-lib",
+    "remove:lib": "nx g @nrwl/workspace:remove new-lib",
     "lint-fix-all": "nx run-many --target=lint-fix-all --all --parallel=4",
     "linter-base-config": "eslint",
     "package": "nx run-many --target=package --all --parallel=4",
@@ -76,6 +78,7 @@
     "syncpack": "^7.2.2",
     "ts-jest": "28.0.5",
     "ts-node": "10.9.1",
+    "tsconfig-paths": "^4.1.0",
     "typescript": "^4.8.4"
   },
   "engines": {

@@ -8,6 +8,8 @@
     "frontend-cloudfront": "frontend/cloudfront",
     "frontend-shared": "frontend/shared",
     "serverless-configuration": "packages/serverless-configuration",
+    "tooling": "libs/tooling",
+    "tooling-e2e": "apps/tooling-e2e",
     "users-contracts": "contracts/users-contracts",
     "utils": "packages/utils"
   }

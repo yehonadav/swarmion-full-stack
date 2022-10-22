@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "declaration": true,
     "declarationMap": true,
-    "noUncheckedIndexedAccess": true
+    "noUncheckedIndexedAccess": true,
+    "paths": {
+      "@swarmion-full-stack/tooling": ["libs/tooling/src/index.ts"]
+    }
   },
   "ts-node": {
     "require": ["tsconfig-paths/register"]

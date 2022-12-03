@@ -1,5 +1,5 @@
+import { readProjectConfiguration, Tree } from '@nrwl/devkit';
 import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
-import { Tree, readProjectConfiguration } from '@nrwl/devkit';
 
 import generator from './generator';
 import { ToolingGeneratorSchema } from './schema';
@@ -13,6 +13,7 @@ describe('tooling generator', () => {
   });
 
   it('should run successfully', async () => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     await generator(appTree, options);
     const config = readProjectConfiguration(appTree, 'test');
     expect(config).toBeDefined();

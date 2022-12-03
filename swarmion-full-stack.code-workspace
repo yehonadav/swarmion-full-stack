@@ -90,6 +90,10 @@
     {
       "path": "packages/utils",
       "name": "utils [library]"
+    },
+    {
+      "path": "backend/new-service",
+      "name": "backend new service [service]"
     }
   ]
 }

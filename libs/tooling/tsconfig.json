@@ -1,17 +1,10 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "baseUrl": "."
+    "baseUrl": ".",
+    "composite": true,
+    "outDir": "./dist/types"
   },
-  "files": [],
-  "include": [],
-  "references": [
-    {
-      "path": "./tsconfig.lib.json"
-    },
-    {
-      "path": "./tsconfig.spec.json"
-    }
-  ]
+  "exclude": ["./dist"],
+  "include": ["./**/*.ts"]
 }

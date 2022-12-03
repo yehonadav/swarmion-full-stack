@@ -9,7 +9,7 @@ import { getHandlerPath } from '@swarmion-full-stack/utils';
 
 const config: LambdaFunction = {
   environment: {},
-  // handler: 'functions/getUser/handler.main',
+  // handler: 'functions/{functionName}/handler.main',
   handler: getHandlerPath(__dirname),
   events: [getTrigger(getUserContract)],
 };

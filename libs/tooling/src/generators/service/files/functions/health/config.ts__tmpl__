@@ -1,0 +1,22 @@
+import {
+  // getHandlerPath,
+  LambdaFunction,
+} from '@swarmion/serverless-helpers';
+
+import { getHandlerPath } from '@<%= workspaceName %>/utils';
+
+const config: LambdaFunction = {
+  environment: {},
+  // handler: 'functions/{functionName}/handler.main',
+  handler: getHandlerPath(__dirname),
+  events: [
+    {
+      httpApi: {
+        method: 'get',
+        path: '/<%= name %>/health',
+      },
+    },
+  ],
+};
+
+export default config;

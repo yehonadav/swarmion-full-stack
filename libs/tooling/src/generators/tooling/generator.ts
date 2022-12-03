@@ -8,6 +8,7 @@ import {
   Tree,
 } from '@nrwl/devkit';
 import * as path from 'path';
+
 import { ToolingGeneratorSchema } from './schema';
 
 interface NormalizedSchema extends ToolingGeneratorSchema {
@@ -17,16 +18,18 @@ interface NormalizedSchema extends ToolingGeneratorSchema {
   parsedTags: string[];
 }
 
-function normalizeOptions(
+const normalizeOptions = (
   tree: Tree,
   options: ToolingGeneratorSchema,
-): NormalizedSchema {
+): NormalizedSchema => {
   const name = names(options.name).fileName;
+  // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
   const projectDirectory = options.directory
     ? `${names(options.directory).fileName}/${name}`
     : name;
   const projectName = projectDirectory.replace(new RegExp('/', 'g'), '-');
   const projectRoot = `${getWorkspaceLayout(tree).libsDir}/${projectDirectory}`;
+  // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
   const parsedTags = options.tags
     ? options.tags.split(',').map(s => s.trim())
     : [];
@@ -38,9 +41,9 @@ function normalizeOptions(
     projectDirectory,
     parsedTags,
   };
-}
+};
 
-function addFiles(tree: Tree, options: NormalizedSchema) {
+const addFiles = (tree: Tree, options: NormalizedSchema) => {
   const templateOptions = {
     ...options,
     ...names(options.name),
@@ -53,9 +56,12 @@ function addFiles(tree: Tree, options: NormalizedSchema) {
     options.projectRoot,
     templateOptions,
   );
-}
+};
 
-export default async function (tree: Tree, options: ToolingGeneratorSchema) {
+export default async (
+  tree: Tree,
+  options: ToolingGeneratorSchema,
+): Promise<void> => {
   const normalizedOptions = normalizeOptions(tree, options);
   addProjectConfiguration(tree, normalizedOptions.projectName, {
     root: normalizedOptions.projectRoot,
@@ -70,4 +76,4 @@ export default async function (tree: Tree, options: ToolingGeneratorSchema) {
   });
   addFiles(tree, normalizedOptions);
   await formatFiles(tree);
-}
+};

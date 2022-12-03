@@ -1,0 +1,41 @@
+import { AWS } from '@serverless/typescript';
+
+import { httpApiResourceContract } from '@swarmion-full-stack/core-contracts';
+import {
+  frameworkVersion,
+  projectName,
+  sharedEsbuildConfig,
+  sharedParams,
+  sharedProviderConfig,
+} from '@swarmion-full-stack/serverless-configuration';
+
+import { functions } from './functions';
+
+const serverlessConfiguration: AWS = {
+  service: `${projectName}-new-service`, // Keep it short to have role name below 64
+  frameworkVersion,
+  configValidationMode: 'error',
+  plugins: [
+    'serverless-esbuild',
+    'serverless-iam-roles-per-function',
+    'serverless-offline',
+  ],
+  provider: {
+    ...sharedProviderConfig,
+    httpApi: {
+      id: httpApiResourceContract.importValue,
+    },
+  },
+  params: sharedParams,
+  functions,
+  package: { individually: true },
+  custom: {
+    projectName,
+    esbuild: sharedEsbuildConfig,
+  },
+  resources: {
+    Description: 'NewService service: fill this description',
+  },
+};
+
+module.exports = serverlessConfiguration;

@@ -2,6 +2,8 @@
   "version": 2,
   "projects": {
     "backend-core": "backend/core",
+    "backend-new-service": "backend/new-service",
+    "new-service": "backend/new-service",
     "backend-users": "backend/users",
     "core-contracts": "contracts/core-contracts",
     "frontend-app": "frontend/app",

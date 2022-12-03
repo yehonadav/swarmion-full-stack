@@ -3,7 +3,7 @@ import { join, sep } from 'path';
 
 const projectName = 'swarmion-full-stack';
 
-const ignorePaths = [__filename, join(__dirname, '.git' + sep)];
+const ignorePaths = [__filename.slice(0, -3), join(__dirname, '.git' + sep)];
 
 // put the new name here
 const renamedProjectName = __dirname.split(sep).slice(-1)[0] as string;

@@ -24,4 +24,7 @@ These commands have to be run at the root of the project.
 - `pnpm nx remove {projectName} --verbose`: remove 1 project
 
 ## Windows OS  
-if you are using windows as your OS, run your scripts using git bash in administrator mode.  
+* if you are using windows as your OS, run your scripts using git bash in administrator mode.  
+* after creating a new service, go to its config.ts file and import { getHandlerPath } from '@swarmion-full-stack/utils';  
+* add @swarmion-full-stack/utils to the project's package.json  
+

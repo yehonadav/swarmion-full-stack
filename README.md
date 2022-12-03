@@ -31,6 +31,8 @@ These commands have to be run at the root of the project.
 ## starting a new project
 when starting a new project, run the `rename-project.ts` script to rename the project  
 you can test it with `git clone https://github.com/yehonadav/swarmion-full-stack.git your-new-project-name`  
+to change the script you mut compile it first: `tsc rename-project.ts --target es2019 --module Node16`  
+and then run `node rename-project.js`  
 
 ## lint issues  
 if you cant commit because of linting you can skip this step by running:  

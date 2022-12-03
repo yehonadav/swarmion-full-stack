@@ -31,3 +31,7 @@ These commands have to be run at the root of the project.
 ## starting a new project
 when starting a new project, run the `rename-project.ts` script to rename the project  
 you can test it with `git clone https://github.com/yehonadav/swarmion-full-stack.git your-new-project-name`  
+
+## lint issues  
+if you cant commit because of linting you can skip this step by running:  
+`git commit --no-verify -m "feat(x): message"`  

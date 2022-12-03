@@ -14,8 +14,17 @@ import {
 
 const projectName = 'swarmion-full-stack';
 
+const ignorePaths = [join(__dirname, '.git' + sep)];
+
 // put the new name here
 const renamedProjectName = __dirname.split(sep).slice(-1)[0] as string;
+
+console.log({
+  message: 'found project name',
+  projectName,
+  renamedProjectName,
+  ignorePaths,
+});
 
 if (
   (renamedProjectName as string | undefined) === undefined ||
@@ -25,12 +34,6 @@ if (
 
 if (renamedProjectName === projectName)
   throw new Error('renamedProjectName must be different from projectName');
-
-console.log({
-  message: 'found project name',
-  projectName,
-  renamedProjectName,
-});
 
 function* walkSync(dir: string): Generator<string> {
   const files = readdirSync(dir, { withFileTypes: true });
@@ -82,6 +85,8 @@ const replaceFileText = ({
 };
 
 for (const filePath of walkSync(__dirname)) {
+  if (ignorePaths.find(i => filePath.startsWith(i)) != null) continue;
+
   replaceFileText({
     filePath: filePath,
     text: projectName,

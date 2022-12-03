@@ -11,6 +11,8 @@
     "tooling": "libs/tooling",
     "tooling-e2e": "apps/tooling-e2e",
     "users-contracts": "contracts/users-contracts",
-    "utils": "packages/utils"
+    "utils": "packages/utils",
+    "www": "apps/www",
+    "www-e2e": "apps/www-e2e"
   }
 }

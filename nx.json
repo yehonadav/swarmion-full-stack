@@ -60,9 +60,26 @@
     "test-circular": {
       "inputs": ["default", "^production"],
       "dependsOn": ["^package"]
+    },
+    "e2e": {
+      "inputs": ["default", "^production"]
     }
   },
   "affected": {
     "defaultBase": "main"
-  }
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "babel": true
+      }
+    },
+    "@nrwl/next": {
+      "application": {
+        "style": "styled-components",
+        "linter": "eslint"
+      }
+    }
+  },
+  "defaultProject": "www"
 }

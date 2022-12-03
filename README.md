@@ -28,3 +28,6 @@ These commands have to be run at the root of the project.
 * after creating a new service, go to its config.ts file and import { getHandlerPath } from '@swarmion-full-stack/utils';  
 * add @swarmion-full-stack/utils to the project's package.json  
 
+## starting a new project
+when starting a new project, run the `rename-project.ts` script to rename the project  
+you can test it with `git clone https://github.com/yehonadav/swarmion-full-stack.git your-new-project-name`  

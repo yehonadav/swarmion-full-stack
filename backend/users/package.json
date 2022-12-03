@@ -43,6 +43,7 @@
     "esbuild": "^0.14.51",
     "eslint": "^8.25.0",
     "serverless": "^3.23.0",
+    "serverless-custom-iam-roles-per-function": "^1.0.1",
     "serverless-esbuild": "^1.32.5",
     "serverless-iam-roles-per-function": "^3.2.0",
     "serverless-offline": "^11.1.2",

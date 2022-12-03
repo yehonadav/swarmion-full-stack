@@ -22,3 +22,6 @@ These commands have to be run at the root of the project.
 - `cd {projectPath} && pnpm install`: install 1 project
 - `pnpm nx deploy {projectName} --verbose`: deploy 1 project
 - `pnpm nx remove {projectName} --verbose`: remove 1 project
+
+## Windows OS  
+if you are using windows as your OS, run your scripts using git bash in administrator mode.  

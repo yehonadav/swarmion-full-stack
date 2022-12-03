@@ -34,4 +34,4 @@ you can test it with `git clone https://github.com/yehonadav/swarmion-full-stack
 
 ## lint issues  
 if you cant commit because of linting you can skip this step by running:  
-`git commit --no-verify -m "feat(x): message"`  
+`git commit --no-verify -am "feat(x): message"`  

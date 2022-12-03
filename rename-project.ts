@@ -12,19 +12,19 @@ import {
   sep,
 } from 'path';
 
-const projectName = __dirname.split(sep).slice(-1)[0] as string;
+const projectName = 'swarmion-full-stack';
 
 // put the new name here
-const renamedProjectName = projectName;
+const renamedProjectName = __dirname.split(sep).slice(-1)[0] as string;
 
 if (
-  (projectName as string | undefined) === undefined ||
-  projectName.length === 0
+  (renamedProjectName as string | undefined) === undefined ||
+  renamedProjectName.length === 0
 )
-  throw new Error('failed to extract projectName');
+  throw new Error('failed to extract renamedProjectName');
 
-// if (renamedProjectName === projectName)
-//   throw new Error('renamedProjectName must be different from projectName');
+if (renamedProjectName === projectName)
+  throw new Error('renamedProjectName must be different from projectName');
 
 console.log({
   message: 'found project name',

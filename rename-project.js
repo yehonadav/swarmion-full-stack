@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
 const path_1 = require("path");
 const projectName = 'swarmion-full-stack';
-const ignorePaths = [(0, path_1.join)(__dirname, '.git' + path_1.sep)];
+const ignorePaths = [__filename, (0, path_1.join)(__dirname, '.git' + path_1.sep)];
 // put the new name here
 const renamedProjectName = __dirname.split(path_1.sep).slice(-1)[0];
 console.log({

@@ -1,16 +1,5 @@
-import {
-  readdirSync,
-  // renameSync
-  readFile,
-  // writeFile,
-} from 'fs';
-import {
-  // poop
-  basename,
-  extname,
-  join,
-  sep,
-} from 'path';
+import { readdirSync, readFile, rename, writeFile } from 'fs';
+import { join, sep } from 'path';
 
 const projectName = 'swarmion-full-stack';
 
@@ -61,6 +50,7 @@ const replaceFileText = ({
         section: 'replaceFileText.readFile',
         message: readFileError.message,
         error: readFileError,
+        filePath,
       });
     }
     if (data.includes(text)) {
@@ -70,16 +60,17 @@ const replaceFileText = ({
         text,
         newText,
       });
-      // const result = data.split(text).join(newText);
-      //
-      // writeFile(filePath, result, 'utf8', writeFileError => {
-      //   if (writeFileError)
-      //     return console.log({
-      //       section: 'replaceFileText.writeFile',
-      //       message: writeFileError.message,
-      //       error: writeFileError,
-      //     });
-      // });
+      const result = data.split(text).join(newText);
+
+      writeFile(filePath, result, 'utf8', writeFileError => {
+        if (writeFileError)
+          return console.log({
+            section: 'replaceFileText.writeFile',
+            message: writeFileError.message,
+            error: writeFileError,
+            filePath,
+          });
+      });
     }
   });
 };
@@ -93,9 +84,7 @@ for (const filePath of walkSync(__dirname)) {
     newText: renamedProjectName,
   });
 
-  const extension = extname(filePath);
-  const filename = basename(filePath, extension);
-  if ((filename + extension).includes(projectName)) {
+  if (filePath.includes(projectName)) {
     const renamedFilePath = filePath
       .split(projectName)
       .join(renamedProjectName);
@@ -106,9 +95,16 @@ for (const filePath of walkSync(__dirname)) {
       renamedFilePath,
     });
 
-    // renameSync(
-    //   join(pathToProjectFolder, filename),
-    //   join(pathToProjectFolder, renamedFilename),
-    // );
+    rename(filePath, renamedFilePath, renameError => {
+      if (renameError) {
+        return console.log({
+          section: 'renameFile',
+          message: renameError.message,
+          error: renameError,
+          renamedFilePath,
+          filePath,
+        });
+      }
+    });
   }
 }

@@ -35,6 +35,7 @@ const replaceFileText = ({ filePath, text, newText, }) => {
                 section: 'replaceFileText.readFile',
                 message: readFileError.message,
                 error: readFileError,
+                filePath,
             });
         }
         if (data.includes(text)) {
@@ -44,16 +45,16 @@ const replaceFileText = ({ filePath, text, newText, }) => {
                 text,
                 newText,
             });
-            // const result = data.split(text).join(newText);
-            //
-            // writeFile(filePath, result, 'utf8', writeFileError => {
-            //   if (writeFileError)
-            //     return console.log({
-            //       section: 'replaceFileText.writeFile',
-            //       message: writeFileError.message,
-            //       error: writeFileError,
-            //     });
-            // });
+            const result = data.split(text).join(newText);
+            (0, fs_1.writeFile)(filePath, result, 'utf8', writeFileError => {
+                if (writeFileError)
+                    return console.log({
+                        section: 'replaceFileText.writeFile',
+                        message: writeFileError.message,
+                        error: writeFileError,
+                        filePath,
+                    });
+            });
         }
     });
 };
@@ -65,9 +66,7 @@ for (const filePath of walkSync(__dirname)) {
         text: projectName,
         newText: renamedProjectName,
     });
-    const extension = (0, path_1.extname)(filePath);
-    const filename = (0, path_1.basename)(filePath, extension);
-    if ((filename + extension).includes(projectName)) {
+    if (filePath.includes(projectName)) {
         const renamedFilePath = filePath
             .split(projectName)
             .join(renamedProjectName);
@@ -76,9 +75,16 @@ for (const filePath of walkSync(__dirname)) {
             filePath,
             renamedFilePath,
         });
-        // renameSync(
-        //   join(pathToProjectFolder, filename),
-        //   join(pathToProjectFolder, renamedFilename),
-        // );
+        (0, fs_1.rename)(filePath, renamedFilePath, renameError => {
+            if (renameError) {
+                return console.log({
+                    section: 'renameFile',
+                    message: renameError.message,
+                    error: renameError,
+                    renamedFilePath,
+                    filePath,
+                });
+            }
+        });
     }
 }
